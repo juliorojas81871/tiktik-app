@@ -3,8 +3,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { AiFillHome, AiOutlineMenu } from "react-icons/ai";
 import { ImCancelCircle } from "react-icons/im";
-import GoogleLogin from "react-google-login";
-import {SuggestedAccounts, Footer, Discover} from './'
+import { SuggestedAccounts, Footer, Discover } from "./";
 
 const Sidebar = () => {
   const [showSidebar, setShowSidebar] = useState<Boolean>(true);
@@ -44,23 +43,6 @@ const Sidebar = () => {
                 <p className="text-gray-400">
                   Please log ing to like and commit on video
                 </p>
-                <div className="pr-4">
-                  <GoogleLogin
-                    clientId=""
-                    render={(renderProps) => (
-                      <button
-                        className="bg-white text-lg text-[#f51997] border-[1px] border-[#f51997] font-semibold px-6 py-3 rounded-md outline-none w-full mt-3 hover:text-white hover:bg-[#f51997] cursor-pointer"
-                        onClick={renderProps.onClick}
-                        disabled={renderProps.disabled}
-                      >
-                        Login
-                      </button>
-                    )}
-                    onSuccess={() => {}}
-                    onFailure={() => {}}
-                    cookiePolicy="single_host_origin"
-                  />
-                </div>
               </div>
             )}
             <Discover />
