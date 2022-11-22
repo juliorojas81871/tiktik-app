@@ -4,11 +4,14 @@ import Link from "next/link";
 import { AiFillHome, AiOutlineMenu } from "react-icons/ai";
 import { ImCancelCircle } from "react-icons/im";
 import { SuggestedAccounts, Footer, Discover } from "./";
+import useAuthStore from '../store/authStore';
 
 const Sidebar = () => {
   const [showSidebar, setShowSidebar] = useState<Boolean>(true);
   const { pathname } = useRouter();
   const userProfile = false;
+  const { fetchAllUsers, allUsers }: any = useAuthStore();
+
 
   const activeLink =
     "flex items-center gap-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold text-[#F51997] rounded";
@@ -46,7 +49,10 @@ const Sidebar = () => {
               </div>
             )}
             <Discover />
-            {/* <SuggestedAccounts /> */}
+            <SuggestedAccounts
+              fetchAllUsers={fetchAllUsers}
+              allUsers={allUsers}
+            />
             <Footer />
           </div>
         </div>
