@@ -130,6 +130,7 @@ const Detail = ({ postDetails }: IProps) => {
               />
             )}
           </div>
+          <Comments />
         </div>
       </div>
     </div>
