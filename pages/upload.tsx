@@ -9,7 +9,7 @@ import { SanityAssetDocument } from "@sanity/client";
 import useAuthStore from "../store/authStore";
 import { client } from "../utils/client";
 import { topics } from "../utils/constants";
-import { BASE_URL } from '../utils';
+import { BASE_URL } from "../utils";
 
 const upload = () => {
   const [loading, setLoading] = useState(false);
@@ -71,7 +71,7 @@ const upload = () => {
         category,
       };
 
-      await axios.post(`${BASE_URL}api/post`, doc);
+      await axios.post(`${BASE_URL}/api/post`, doc);
 
       router.push("/");
     }
@@ -99,14 +99,14 @@ const upload = () => {
               Post a video to your account
             </p>
           </div>
-          <div className=" border-dashed rounded-xl border-4 border-gray-200 flex flex-col justify-center items-center  outline-none mt-10 w-[260px] h-[458px] p-10 cursor-pointer hover:border-red-300 hover:bg-gray-100">
-            {loading ? (
-              <p className="text-center text-3xl text-red-400 font-semibold">
-                Uploading...
-              </p>
-            ) : (
-              <div>
-                {!videoAsset ? (
+          {loading ? (
+            <p className="text-center text-3xl text-red-400 font-semibold">
+              Uploading...
+            </p>
+          ) : (
+            <div>
+              {!videoAsset ? (
+                <div className=" border-dashed rounded-xl border-4 border-gray-200 flex flex-col justify-center items-center  outline-none mt-10 w-[260px] h-[458px] p-10 cursor-pointer hover:border-red-300 hover:bg-gray-100">
                   <label className="cursor-pointer">
                     <div className="flex flex-col items-center justify-center h-full">
                       <div className="flex flex-col justify-center items-center">
@@ -135,19 +135,19 @@ const upload = () => {
                       onChange={(e) => uploadVideo(e)}
                     />
                   </label>
-                ) : (
-                  <div className=" rounded-3xl w-[300px]  p-4 flex flex-col gap-6 justify-center items-center">
-                    <video
-                      className="rounded-xl h-[462px] mt-16 bg-black"
-                      controls
-                      loop
-                      src={videoAsset?.url}
-                    />
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
+                </div>
+              ) : (
+                <div className=" rounded-3xl w-[300px]  p-4 flex flex-col gap-6 justify-center items-center">
+                  <video
+                    className="rounded-xl h-[462px] mt-16 bg-black"
+                    controls
+                    loop
+                    src={videoAsset?.url}
+                  />
+                </div>
+              )}
+            </div>
+          )}
           {wrongFileType && (
             <p className="text-center text-xl text-red-400 font-semibold mt-4 w-[260px]">
               Please select an video file (mp4 or webm or ogg)

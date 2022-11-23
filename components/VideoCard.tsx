@@ -39,7 +39,7 @@ const VideoCard: NextPage<IProps> = ({ post }) => {
       <div>
         <div className="flex gap-3 p-2 cursor-pointer font-semibold rounded ">
           <div className="md:w-16 md:h-16 w-10 h-10">
-            <Link href={`/`}>
+            <Link href={`/profile/${post.postedBy?._id}`}>
               <>
                 <Image
                   width={62}
@@ -53,7 +53,7 @@ const VideoCard: NextPage<IProps> = ({ post }) => {
             </Link>
           </div>
           <div>
-            <Link href={`/`}>
+            <Link href={`/profile/${post.postedBy?._id}`}>
               <div className="flex items-center gap-2">
                 <p className="flex gap-2 items-center md:text-md font-bold text-primary">
                   {post.postedBy.userName}{" "}
@@ -76,32 +76,32 @@ const VideoCard: NextPage<IProps> = ({ post }) => {
           onMouseLeave={() => setIsHover(false)}
           className="rounded-3xl"
         >
-          <Link href={`/`}>
+          <Link href={`/detail/${post._id}`}>
             <video
               loop
               ref={videoRef}
               src={post.video.asset.url}
-              className="lg:w-[600px] h-[300px] md:h-[400px] lg:h-[528px] w-[200px] rounded-2xl cursor-pointer bg-gray-100"
+              className="md:w-[600px] h-[300px] md:h-[528px] w-[200px] rounded-2xl cursor-pointer bg-gray-100"
             />
           </Link>
           {isHover && (
-            <div className='absolute bottom-6 cursor-pointer left-8 md:left-14 lg:left-0 flex gap-10 lg:justify-between w-[100px] md:w-[50px] lg:w-[600px] p-3'>
+            <div className="absolute bottom-6 cursor-pointer left-8 md:left-0 flex gap-10 md:justify-between w-[100px] md:w-[600px] p-3">
               {playing ? (
                 <button onClick={onVideoPress}>
-                  <BsFillPauseFill className='text-black text-2xl lg:text-4xl' />
+                  <BsFillPauseFill className="text-black text-2xl md:text-4xl" />
                 </button>
               ) : (
                 <button onClick={onVideoPress}>
-                  <BsFillPlayFill className='text-black text-2xl lg:text-4xl' />
+                  <BsFillPlayFill className="text-black text-2xl md:text-4xl" />
                 </button>
               )}
               {isVideoMuted ? (
                 <button onClick={() => setIsVideoMuted(false)}>
-                  <HiVolumeOff className='text-black text-2xl lg:text-4xl' />
+                  <HiVolumeOff className="text-black text-2xl md:text-4xl" />
                 </button>
               ) : (
                 <button onClick={() => setIsVideoMuted(true)}>
-                  <HiVolumeUp className='text-black text-2xl lg:text-4xl' />
+                  <HiVolumeUp className="text-black text-2xl md:text-4xl" />
                 </button>
               )}
             </div>

@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/router";
 import { GoVerified } from "react-icons/go";
 import Image from "next/image";
 import Link from "next/link";
@@ -25,7 +24,6 @@ const Detail = ({ postDetails }: IProps) => {
   const [comment, setComment] = useState<string>("");
 
   const videoRef = useRef<HTMLVideoElement>(null);
-  const router = useRouter();
 
   const { userProfile }: any = useAuthStore();
 
@@ -83,9 +81,11 @@ const Detail = ({ postDetails }: IProps) => {
       </Head>
       <div className="relative flex-2 w-[1000px] lg:w-9/12 flex justify-center items-center bg-black bg-no-repeat bg-cover bg-center">
         <div className="opacity-90 absolute top-6 left-2 lg:left-6 flex gap-6 z-50">
-          <p className="cursor-pointer" onClick={() => router.back()}>
-            <MdOutlineCancel className="text-white text-[35px] hover:opacity-90" />
-          </p>
+          <Link href={`/`}>
+            <p className="cursor-pointer">
+              <MdOutlineCancel className="text-white text-[35px] hover:opacity-90" />
+            </p>
+          </Link>
         </div>
         <div className="relative">
           <div className="lg:h-[100vh] h-[60vh]">
