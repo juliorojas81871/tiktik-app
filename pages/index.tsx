@@ -19,7 +19,9 @@ export default function Home({ videos }: IProps) {
 
       <div className="flex flex-col gap-10 videos h-full">
         {videos.length ? (
-          videos?.map((video: Video) => <VideoCard post={video} />)
+          videos?.map((video: Video) => (
+            <VideoCard post={video} key={video._id} isShowingOnHome />
+          ))
         ) : (
           <NoResults text={`No Videos`} camera={false} />
         )}
@@ -28,9 +30,19 @@ export default function Home({ videos }: IProps) {
   );
 }
 
-export const getServerSideProps = async () => {
-  const { data } = await axios.get(`${BASE_URL}/api/post`);
+export const getServerSideProps = async ({
+  query: { topic },
+}: {
+  query: { topic: string };
+}) => {
+  // to get all video
+  let response = await axios.get(`${BASE_URL}/api/post`);
+ // to get video for specific topix
+  if (topic) {
+    response = await axios.get(`${BASE_URL}/api/discover/${topic}`);
+  }
+
   return {
-    props: { videos: data },
+    props: { videos: response.data },
   };
 };

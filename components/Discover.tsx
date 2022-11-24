@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-
+import { NextPage } from 'next';
 import { topics } from "../utils/constants";
 
-const Discover = () => {
-  const router = useRouter();
+const Discover: NextPage = () => {
+    const router = useRouter();
   // use data insise the url to fins out what topic is being click
   const { topic } = router.query;
 
