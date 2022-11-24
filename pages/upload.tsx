@@ -11,7 +11,7 @@ import { client } from "../utils/client";
 import { topics } from "../utils/constants";
 import { BASE_URL } from "../utils";
 
-const upload = () => {
+const Upload = () => {
   const [loading, setLoading] = useState(false);
   const [caption, setCaption] = useState("");
   const [topic, settopic] = useState(topics[0].name);
@@ -218,4 +218,4 @@ const upload = () => {
   );
 };
 
-export default upload;
+export default Upload;
