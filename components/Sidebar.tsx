@@ -1,12 +1,13 @@
-import { useState } from "react";
+import React, { useState } from 'react';
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { AiFillHome, AiOutlineMenu } from "react-icons/ai";
 import { ImCancelCircle } from "react-icons/im";
 import { SuggestedAccounts, Footer, Discover } from "./";
 import useAuthStore from '../store/authStore';
+import { NextPage } from 'next';
 
-const Sidebar = () => {
+const Sidebar: NextPage = () => {
   const [showSidebar, setShowSidebar] = useState<Boolean>(true);
   const { pathname } = useRouter();
   const userProfile = false;

@@ -1,5 +1,6 @@
 import { MdOutlineVideocamOff } from 'react-icons/md';
 import { BiCommentX } from 'react-icons/bi';
+import React from 'react';
 
 interface IProps {
   text: string;

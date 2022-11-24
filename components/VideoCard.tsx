@@ -6,7 +6,7 @@ import { BsFillPlayFill, BsFillPauseFill } from "react-icons/bs";
 import { GoVerified } from "react-icons/go";
 import { BsPlay } from "react-icons/bs";
 import { Video } from "./../types";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from 'react';
 
 interface IProps {
   post: Video;
