@@ -23,7 +23,7 @@ export default function Home({ videos }: IProps) {
             <VideoCard post={video} key={video._id} isShowingOnHome />
           ))
         ) : (
-          <NoResults text={`No Videos`} camera={false} />
+          <NoResults text={`No Videos`} camera={true} account={false} comment={false} like={false}/>
         )}
       </div>
     </div>
@@ -37,7 +37,7 @@ export const getServerSideProps = async ({
 }) => {
   // to get all video
   let response = await axios.get(`${BASE_URL}/api/post`);
- // to get video for specific topix
+  // to get video for specific topix
   if (topic) {
     response = await axios.get(`${BASE_URL}/api/discover/${topic}`);
   }

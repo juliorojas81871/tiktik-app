@@ -5,6 +5,7 @@ import { IUser } from "../types";
 import Image from "next/image";
 import Link from "next/link";
 import { GoVerified } from "react-icons/go";
+import { LeapFrog } from "@uiball/loaders";
 
 interface IProps {
   isPostingComment: Boolean;
@@ -72,7 +73,10 @@ const Comments = ({
           <div>
             <NoResults
               text="No Comments Yet! Be First to do add the comment."
-              camera={true}
+              camera={false}
+              account={false}
+              comment={true}
+              like={false}
             />
           </div>
         )}
@@ -90,7 +94,17 @@ const Comments = ({
               className="text-white w-fit text-md  px-6 py-3 flex items-center rounded-md bg-[#F51997] cursor-pointer"
               onClick={addComment}
             >
-              {isPostingComment ? "Commenting..." : "Comment"}
+              {isPostingComment ? (
+                <div
+                  className="flex w-full items-center justify-center px-6 text-xl"
+                  aria-live="polite"
+                  aria-busy={!isPostingComment}
+                >
+                  <LeapFrog size={20} color="white" />
+                </div>
+              ) : (
+                "Comment"
+              )}
             </button>
           </form>
         </div>

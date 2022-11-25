@@ -76,6 +76,9 @@ const Search = ({ videos }: { videos: Video[] }) => {
             <NoResults
               text={`No Account Results for ${searchTerm}`}
               camera={false}
+              account={true}
+              comment={false}
+              like={false}
             />
           )}
         </div>
@@ -88,7 +91,10 @@ const Search = ({ videos }: { videos: Video[] }) => {
           ) : (
             <NoResults
               text={`No Video Results for ${searchTerm}`}
-              camera={false}
+              camera={true}
+              account={false}
+              comment={false}
+              like={false}
             />
           )}
         </div>
