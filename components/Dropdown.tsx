@@ -18,7 +18,7 @@ const Dropdown = ({ user }: any) => {
   };
 
   return (
-    <div>
+    <div className="z-40">
       <Menu as="div">
         <Menu.Button className="-m-1 cursor-pointer items-center space-x-2 border border-gray-100 p-2 flex hover:bg-gray-100">
           {user.image && (
