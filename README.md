@@ -1,4 +1,4 @@
-# Reddit Clone
+# TikTik App
 
 ## Description
 
