@@ -31,7 +31,7 @@ const Comments = ({
   const { allUsers, userProfile }: any = useAuthStore();
 
   return (
-    <div className="border-t-2 border-gray-200 pt-4 px-10 mt-4 bg-[#F8F8F8] border-b-2 lg:pb-0 pb-[100px]">
+    <div className="border-t-2 border-gray-200 pt-4 px-10 mt-4 bg-[#F8F8F8] dark:bg-[#0f1217] border-b-2 lg:pb-0 pb-[100px]">
       <div className="overflow-scroll lg:h-[457px]">
         {comments?.length > 0 ? (
           comments?.map((item: IComment, idx: number) => (
@@ -53,7 +53,7 @@ const Comments = ({
                             />
                           </div>
 
-                          <p className="flex cursor-pointer gap-1 items-center text-[18px] font-bold leading-6 text-primary">
+                          <p className="flex cursor-pointer gap-1 items-center text-[18px] font-bold leading-6 text-primary dark:text-white">
                             {user.userName}{" "}
                             <GoVerified className="text-blue-400" />
                           </p>
@@ -87,11 +87,11 @@ const Comments = ({
             <input
               value={comment}
               onChange={(e) => setComment(e.target.value)}
-              className="bg-primary px-6 py-4 text-md font-medium border-2 w-[250px] md:w-[700px] lg:w-[350px]  outline-none  border-gray-300 flex-1 rounded-lg"
+              className="bg-primary dark:bg-gray-800 px-6 py-4 text-md font-medium border-2 w-[250px] md:w-[700px] lg:w-[350px] outline-none border-gray-300 flex-1 rounded-lg"
               placeholder="Add comment.."
             />
             <button
-              className="text-white w-fit text-md  px-6 py-3 flex items-center rounded-md bg-[#F51997] cursor-pointer"
+              className="text-white w-fit text-md px-6 py-3 flex items-center rounded-md bg-[#F51997] cursor-pointer"
               onClick={addComment}
             >
               {isPostingComment ? (
@@ -99,7 +99,7 @@ const Comments = ({
                   className="flex w-full items-center justify-center px-6 text-xl"
                   aria-live="polite"
                   aria-busy={!isPostingComment}
-                >
+                > 
                   <LeapFrog size={20} color="white" />
                 </div>
               ) : (

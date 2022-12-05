@@ -10,15 +10,15 @@ import { NextPage } from 'next';
 const Sidebar: NextPage = () => {
   const [showSidebar, setShowSidebar] = useState<Boolean>(true);
   const { pathname } = useRouter();
-  const userProfile = false;
+  const { userProfile }: any = useAuthStore();
   const { fetchAllUsers, allUsers }: any = useAuthStore();
 
 
   const activeLink =
-    "flex items-center gap-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold text-[#F51997] rounded";
+    "flex items-center gap-3 hover:bg-primary dark:hover:bg-gray-800 p-3 justify-center xl:justify-start cursor-pointer font-semibold text-[#F51997] rounded";
 
   const normalLink =
-    "flex items-center gap-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold rounded";
+    "flex items-center gap-3 hover:bg-primary dark:hover:bg-gray-800 p-3 justify-center xl:justify-start cursor-pointer font-semibold rounded";
   return (
     <div>
       <div
@@ -45,7 +45,7 @@ const Sidebar: NextPage = () => {
             {!userProfile && (
               <div className="px-2 py-4 hidden xl:block">
                 <p className="text-gray-400">
-                  Please log ing to like and commit on video
+                  Please log in to like and commit on video
                 </p>
               </div>
             )}

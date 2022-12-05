@@ -44,7 +44,7 @@ const Profile = ({ data }: IProps) => {
         <link rel="icon" href="/tiktik-icon.png" />
       </Head>
 
-      <div className="flex gap-6 md:gap-10 mb-4 bg-white w-full">
+      <div className="flex gap-6 md:gap-10 mb-4 bg-white dark:bg-[#0f1217] w-full">
         <div className="w-16 h-16 md:w-32 md:h-32">
           <Image
             width={120}
@@ -65,7 +65,7 @@ const Profile = ({ data }: IProps) => {
         </div>
       </div>
       <div>
-        <div className="flex gap-10 mb-10 mt-10 border-b-2 border-gray-200 bg-white w-full">
+        <div className="flex gap-10 mb-10 mt-10 border-b-2 border-gray-200 bg-white dark:bg-[#0f1217] w-full">
           <p
             className={`text-xl font-semibold cursor-pointer ${videos} mt-2`}
             onClick={() => setShowUserVideos(true)}

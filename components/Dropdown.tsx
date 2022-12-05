@@ -6,6 +6,7 @@ import Image from "next/image";
 import React from "react";
 import { googleLogout } from "@react-oauth/google";
 import { useRouter } from "next/router";
+import { ThemeToggler } from "./";
 
 const Dropdown = ({ user }: any) => {
   const { removeUser } = useAuthStore();
@@ -20,7 +21,7 @@ const Dropdown = ({ user }: any) => {
   return (
     <div className="z-40">
       <Menu as="div">
-        <Menu.Button className="-m-1 cursor-pointer items-center space-x-2 border border-gray-100 p-2 flex hover:bg-gray-100">
+        <Menu.Button className="-m-1 cursor-pointer items-center space-x-2 border border-gray-100 p-2 flex hover:bg-gray-100 dark:hover:bg-gray-800">
           {user.image && (
             <div>
               <Image
@@ -47,13 +48,13 @@ const Dropdown = ({ user }: any) => {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items className="absolute bg-white md:w-36 mt-1 origin-top-right divide-y divide-gray-100 rounded-sm shadow-sm ring-1 ring-black ring-opacity-5 focus:outline-none">
-            <div className="px-1 py-1 ">
+          <Menu.Items className="absolute dark:bg-[#0f1217] bg-white md:w-36 mt-2 origin-top-right divide-y divide-gray-100 rounded-sm shadow-sm ring-1 ring-black ring-opacity-5 focus:outline-none">
+            <div className="px-1 py-1">
               <Menu.Item>
                 {({ active }) => (
                   <button
                     className={`${
-                      active && "bg-gray-100"
+                      active && "bg-gray-100 dark:bg-gray-800" 
                     } group flex rounded-md items-center w-full px-2 py-2 text-sm font-semibold tracking-wide cursor-default`}
                     onClick={() => {
                       googleLogout();
@@ -64,17 +65,24 @@ const Dropdown = ({ user }: any) => {
                   </button>
                 )}
               </Menu.Item>
+            </div>
+            <div className="px-1 py-1">
               <Menu.Item>
                 {({ active }) => (
                   <button
                     className={`${
-                      active && "bg-gray-100"
+                      active && "bg-gray-100 dark:bg-gray-800"
                     } group flex rounded-md items-center w-full px-2 py-2 text-sm font-semibold tracking-wide cursor-default`}
                     onClick={handleAccount}
                   >
                     Account
                   </button>
                 )}
+              </Menu.Item>
+            </div>
+            <div className="px-1 py-1 flex flex-col justify-center items-center">
+              <Menu.Item>
+                <ThemeToggler />
               </Menu.Item>
             </div>
           </Menu.Items>

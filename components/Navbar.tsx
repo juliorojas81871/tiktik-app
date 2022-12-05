@@ -60,15 +60,15 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <div className="relative md:block">
+      <div className="relative md:block ">
         <form
           onSubmit={handleSearch}
-          className="md:static md:top-10 -left-20 bg-white"
+          className="md:static md:top-10 -left-20 bg-white dark:bg-[#0f1217]"
         >
           <input
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
-            className="bg-primary p-3 md:text-md font-medium border-2 border-gray-100 focus:outline-none focus:border-2 focus:border-gray-300 w-[200px] md:w-[350px] rounded-full md:top-0"
+            className="bg-primary dark:bg-gray-800 p-3 md:text-md font-medium border-2 border-gray-100 focus:outline-none focus:border-2 focus:border-gray-300 w-[200px] md:w-[350px] rounded-full md:top-0"
             // placeholder="Search accounts and videos"
           />
           <button

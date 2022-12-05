@@ -42,7 +42,7 @@ const VideoCard: NextPage<IProps> = ({ post: { caption, postedBy, video, _id, li
             loop
             src={video.asset.url}
             className='w-[250px] md:w-full rounded-xl cursor-pointer'
-          ></video>
+          />
         </Link>
             <div className='flex gap-2 -mt-8 items-center ml-4'>
               <p className='text-white text-lg font-medium flex gap-1 items-center'>
@@ -51,7 +51,7 @@ const VideoCard: NextPage<IProps> = ({ post: { caption, postedBy, video, _id, li
               </p>
             </div>
         <Link href={`/detail/${_id}`}>
-          <p className='mt-5 text-md text-gray-800 cursor-pointer w-210'>
+          <p className='mt-5 text-md text-gray-800 dark:text-gray-300 cursor-pointer'>
             {caption}
           </p>
         </Link>
@@ -80,11 +80,11 @@ const VideoCard: NextPage<IProps> = ({ post: { caption, postedBy, video, _id, li
           <div>
             <Link href={`/profile/${postedBy?._id}`}>
               <div className='flex items-center gap-2'>
-                <p className='flex gap-2 items-center md:text-md font-bold text-primary'>
+                <p className='flex gap-2 items-center md:text-md font-bold text-primary dark:text-white'>
                   {postedBy.userName}{' '}
                   <GoVerified className='text-blue-400 text-md' />
                 </p>
-                <p className='capitalize font-medium text-xs text-gray-500 hidden md:block'>
+                <p className='capitalize font-medium text-xs text-gray-500 dark:text-gray-300 hidden md:block'>
                   {postedBy.userName}
                 </p>
               </div>

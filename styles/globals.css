@@ -34,3 +34,11 @@ a {
 ::-webkit-scrollbar-track {
   background-color: transparent;
 }
+
+@layer components {
+  /* next-themes */
+  .dark {
+    color: #fff;
+    background: #0f1217;
+  }
+}

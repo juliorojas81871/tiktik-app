@@ -8,3 +8,4 @@ export { default as VideoCard } from "./VideoCard";
 export { default as LikeButton } from "./LikeButton";
 export { default as Comments } from "./Comments";
 export { default as Dropdown } from "./Dropdown";
+export { default as ThemeToggler } from "./ThemeToggler";
